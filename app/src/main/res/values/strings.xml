@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Card View</string>
     <string name="action_settings">Settings</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">Hotel Table Booking</string>
+    <string name="backdrop_subtitle">Book Now</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

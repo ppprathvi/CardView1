@@ -1,23 +1,23 @@
 package info.androidhive.cardview;
 
 /**
- * Created by Lincoln on 18/05/16.
+ * Created by Prathviraj Patil on 11/10/16.
  */
 public class Album {
     private String name;
-    private int numOfSongs;
+    private int review;
     private int thumbnail;
 
     public Album() {
     }
 
-    public Album(String name, int numOfSongs, int thumbnail) {
+    public Album(String name, int review, int thumbnail) {
         this.name = name;
-        this.numOfSongs = numOfSongs;
+        this.review = review;
         this.thumbnail = thumbnail;
     }
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
@@ -25,12 +25,12 @@ public class Album {
         this.name = name;
     }
 
-    public int getNumOfSongs() {
-        return numOfSongs;
+    public int getReview() {
+        return review;
     }
 
-    public void setNumOfSongs(int numOfSongs) {
-        this.numOfSongs = numOfSongs;
+    public void setReview(int review) {
+        this.review = review;
     }
 
     public int getThumbnail() {

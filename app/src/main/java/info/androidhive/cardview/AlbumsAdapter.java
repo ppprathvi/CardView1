@@ -1,34 +1,59 @@
 package info.androidhive.cardview;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 /**
- * Created by Lincoln on 18/05/16.
+ * Created by Prathviraj Patil on 11/10/16.
  */
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHolder> {
 
+    private Context mContext;
     private List<Album> albumList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title;
-        public ImageView thumbnail;
-
-        public MyViewHolder(View view) {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView title, count;
+        public ImageView thumbnail, overflow;
+        private List<Album> albumList;
+        Context mContext;
+        public MyViewHolder(View view,Context mContext,List<Album> albumList) {
             super(view);
+            this.albumList= albumList;
+            this.mContext= mContext;
+            view.setOnClickListener(this);
             title = (TextView) view.findViewById(R.id.title);
+            count = (TextView) view.findViewById(R.id.count);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+        int position = getAdapterPosition();
+            Album album=this.albumList.get(position);
+            Intent intent=new Intent(this.mContext,HotelDetails.class);
+
+            this.mContext.startActivity(intent);
         }
     }
 
 
-    public AlbumsAdapter(List<Album> albumList) {
+    public AlbumsAdapter(Context mContext, List<Album> albumList) {
+        this.mContext = mContext;
         this.albumList = albumList;
     }
 
@@ -37,15 +62,21 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.album_card, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView,mContext,albumList);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         Album album = albumList.get(position);
         holder.title.setText(album.getName());
-        holder.thumbnail.setImageResource(album.getThumbnail());
+        holder.count.setText(album.getReview() + " Review");
+
+        // loading album cover using Glide library
+        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+
     }
+
+
 
     @Override
     public int getItemCount() {

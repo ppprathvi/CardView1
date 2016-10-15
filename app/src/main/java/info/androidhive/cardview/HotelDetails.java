@@ -6,19 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-//Implementing the interface OnTabSelectedListener to our MainActivity
+//Implementing the interface OnTabSelectedListener to our CustomerHome
 //This interface would help in swiping views
 public class HotelDetails extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
         //This is our tablayout
         private TabLayout tabLayout1;
 
+
         //This is our viewPager
         private ViewPager viewPager;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_hotel_details);
+                setContentView(R.layout.hotel_details);
+
 
                 //Adding toolbar to the activity
                 Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -44,10 +46,14 @@ public class HotelDetails extends AppCompatActivity implements TabLayout.OnTabSe
 
                 //Adding onTabSelectedListener to swipe views
                 tabLayout1.setOnTabSelectedListener(this);
+
+
+
         }
         @Override
         public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
         }
         @Override
         public void onTabUnselected(TabLayout.Tab tab) {

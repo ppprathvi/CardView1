@@ -1,15 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textbook"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Book Table to Save Time"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:id="@+id/checkin"
+        android:padding="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check In Time :"/>
+        <EditText
+            android:id="@+id/checkin_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="HH:"
+            android:maxLength="2"/>
+        <EditText
+            android:id="@+id/checkin_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="MM:"
+            android:maxLength="2"/>
+        <EditText
+            android:id="@+id/checkin_sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="SS"
+            android:maxLength="2"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkout"
+        android:layout_below="@+id/checkin"
+        android:padding="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Out Time :"/>
+        <EditText
+            android:id="@+id/checkout_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="HH:"
+            android:maxLength="2"/>
+        <EditText
+            android:id="@+id/checkout_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="MM:"
+            android:maxLength="2"/>
+        <EditText
+            android:id="@+id/checkout_sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="SS"
+            android:maxLength="2"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookdate"
+        android:layout_below="@+id/checkout"
+        android:padding="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date                   :"/>
+        <EditText
+            android:id="@+id/date_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="YYYY-"
+            android:maxLength="4"/>
+        <EditText
+            android:id="@+id/date_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="MM-"
+            android:maxLength="2"/>
+        <EditText
+            android:id="@+id/date_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:hint="DD"
+            android:maxLength="2"/>
+    </LinearLayout>
+
+
+
+        <!--<HorizontalScrollView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<TableLayout-->
+        <!--android:id="@+id/table"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/textView"-->
+        <!--android:layout_toRightOf="@+id/textView"-->
+        <!--android:layout_toEndOf="@+id/textView"></TableLayout>-->
+        <!--</HorizontalScrollView>-->
+
+    <LinearLayout
+        android:id="@+id/radiopark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bookdate">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Do You Want Parking?"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <RadioButton android:id="@+id/park_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/park_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+        </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/availcheck"
+        android:layout_below="@+id/radiopark"
+        android:padding="20dp">
+        <Button
+            android:id="@+id/book_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Book"
+            />
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>
+    </ScrollView>
